@@ -17,7 +17,7 @@ public class MySQLUsersDao implements Users {
                 config.getPassword()
             );
         } catch (SQLException e) {
-            throw new RuntimeException("Error connecting to the database!", e);
+            throw new RuntimeException("Error connecting to database!", e);
         }
     }
 
@@ -30,7 +30,7 @@ public class MySQLUsersDao implements Users {
             stmt.setString(1, username);
             return extractUser(stmt.executeQuery());
         } catch (SQLException e) {
-            throw new RuntimeException("Error finding a user by username", e);
+            throw new RuntimeException("Error finding a user", e);
         }
     }
 
@@ -47,7 +47,7 @@ public class MySQLUsersDao implements Users {
             rs.next();
             return rs.getLong(1);
         } catch (SQLException e) {
-            throw new RuntimeException("Error creating new user", e);
+            throw new RuntimeException("Error creating user", e);
         }
     }
 
@@ -56,10 +56,10 @@ public class MySQLUsersDao implements Users {
             return null;
         }
         return new User(
-            rs.getLong("id"),
-            rs.getString("username"),
-            rs.getString("email"),
-            rs.getString("password")
+            rs.getLong("ID"),
+            rs.getString("Username"),
+            rs.getString("Email"),
+            rs.getString("Password")
         );
     }
 
