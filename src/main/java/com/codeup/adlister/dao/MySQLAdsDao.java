@@ -22,7 +22,7 @@ public class MySQLAdsDao implements Ads {
                 config.getPassword()
             );
         } catch (SQLException e) {
-            throw new RuntimeException("Error connecting to the database!", e);
+            throw new RuntimeException("Error : Could not connect", e);
         }
     }
 
@@ -34,7 +34,7 @@ public class MySQLAdsDao implements Ads {
             ResultSet rs = stmt.executeQuery("SELECT * FROM ads");
             return createAdsFromResults(rs);
         } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving all ads.", e);
+            throw new RuntimeException("Error retrieving all the ads.", e);
         }
     }
 
@@ -75,3 +75,7 @@ public class MySQLAdsDao implements Ads {
         return ads;
     }
 }
+//added MySQL
+
+
+//passwords-solution
